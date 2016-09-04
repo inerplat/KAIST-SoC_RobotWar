@@ -1,0 +1,191 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2011 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 11.0 Build 157 04/27/2011 SJ Web Edition
+# Date created = 10:58:34  June 20, 2011
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		SoCRobot_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE75U19I7
+set_global_assignment -name TOP_LEVEL_ENTITY FPGA_Processing
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 11.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:58:34  JUNE 20, 2011"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_J2 -to eamem_adr[17]
+set_location_assignment PIN_J1 -to eamem_adr[16]
+set_location_assignment PIN_H7 -to eamem_adr[15]
+set_location_assignment PIN_H6 -to eamem_adr[14]
+set_location_assignment PIN_H4 -to eamem_adr[13]
+set_location_assignment PIN_H3 -to eamem_adr[12]
+set_location_assignment PIN_H2 -to eamem_adr[11]
+set_location_assignment PIN_H1 -to eamem_adr[10]
+set_location_assignment PIN_G4 -to eamem_adr[9]
+set_location_assignment PIN_G3 -to eamem_adr[8]
+set_location_assignment PIN_F2 -to eamem_adr[7]
+set_location_assignment PIN_F1 -to eamem_adr[6]
+set_location_assignment PIN_E3 -to eamem_adr[5]
+set_location_assignment PIN_E1 -to eamem_adr[4]
+set_location_assignment PIN_D2 -to eamem_adr[3]
+set_location_assignment PIN_C2 -to eamem_adr[2]
+set_location_assignment PIN_C1 -to eamem_adr[1]
+set_location_assignment PIN_B2 -to eamem_adr[0]
+set_location_assignment PIN_P3 -to eamem_data[15]
+set_location_assignment PIN_P2 -to eamem_data[14]
+set_location_assignment PIN_P1 -to eamem_data[13]
+set_location_assignment PIN_N6 -to eamem_data[12]
+set_location_assignment PIN_N5 -to eamem_data[11]
+set_location_assignment PIN_N2 -to eamem_data[10]
+set_location_assignment PIN_N1 -to eamem_data[9]
+set_location_assignment PIN_M6 -to eamem_data[8]
+set_location_assignment PIN_M4 -to eamem_data[7]
+set_location_assignment PIN_M3 -to eamem_data[6]
+set_location_assignment PIN_M2 -to eamem_data[5]
+set_location_assignment PIN_M1 -to eamem_data[4]
+set_location_assignment PIN_L6 -to eamem_data[3]
+set_location_assignment PIN_AA1 -to eamem_data[2]
+set_location_assignment PIN_V3 -to eamem_data[1]
+set_location_assignment PIN_V4 -to eamem_data[0]
+set_location_assignment PIN_AA5 -to eamem_csx
+set_location_assignment PIN_T2 -to clk_lsdr
+set_location_assignment PIN_G21 -to clk_llc2
+set_location_assignment PIN_T21 -to clk_llc
+set_location_assignment PIN_AA7 -to eamem_rdx
+set_location_assignment PIN_AA9 -to eamem_waitx
+set_location_assignment PIN_AA8 -to eamem_wrx
+set_location_assignment PIN_AA12 -to href
+set_location_assignment PIN_AA19 -to led_test
+set_location_assignment PIN_A11 -to odd
+set_location_assignment PIN_T16 -to resetx
+set_location_assignment PIN_J20 -to vpo[15]
+set_location_assignment PIN_J19 -to vpo[14]
+set_location_assignment PIN_J18 -to vpo[13]
+set_location_assignment PIN_H22 -to vpo[12]
+set_location_assignment PIN_H21 -to vpo[11]
+set_location_assignment PIN_H20 -to vpo[10]
+set_location_assignment PIN_H19 -to vpo[9]
+set_location_assignment PIN_H17 -to vpo[8]
+set_location_assignment PIN_F22 -to vpo[7]
+set_location_assignment PIN_F21 -to vpo[6]
+set_location_assignment PIN_F19 -to vpo[5]
+set_location_assignment PIN_F17 -to vpo[4]
+set_location_assignment PIN_D22 -to vpo[3]
+set_location_assignment PIN_D21 -to vpo[2]
+set_location_assignment PIN_C22 -to vpo[1]
+set_location_assignment PIN_C21 -to vpo[0]
+set_location_assignment PIN_AA11 -to vref
+set_global_assignment -name EDA_TIMING_ANALYSIS_TOOL "<None>"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_timing_analysis
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_timing_analysis
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[11]
+set_location_assignment PIN_AB5 -to eamem_irq2
+set_location_assignment PIN_AB10 -to eamem_irq1
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_llc
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_llc2
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_lsdr
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[16]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_adr[17]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_csx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_data[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_irq1
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_irq2
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_rdx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_waitx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to eamem_wrx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to href
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led_test
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to odd
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to resetx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vpo[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to vref
+set_global_assignment -name VERILOG_FILE FPGA_Processing.v
+set_global_assignment -name QIP_FILE RAM.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
