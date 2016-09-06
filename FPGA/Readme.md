@@ -16,9 +16,12 @@ FPGA보드에 프로그래밍이 안되는 경우 아래와 같은상황인지 �
 
 2. 컴파일하고 바로 programmer탭으로 업로드하면 안됩니다.매번 jic파일을 변경해야합니다.
  
- 2-1. Convert Programming files에서 programming file type을 JTAG Indirect Configueration File(.jic)를 선택했는지 확인합니다.
+  2-1. Convert Programming files에서 programming file type을 JTAG Indirect Configueration File(.jic)를 선택했는지 확인합니다.
 
+  2-2. Device를 EPCS64로 변경했는지 확인합니다.
 
- 2-2. Device를 EPCS64로 변경했는지 확인합니다.
-
- 2-3. 
+  2-3. Flash Loader Device 를 Cyclone IV E / EP4CE75로 변경하였는지 확인합니다.
+ 
+  2-4. SOF Data를 SoC_Brain.sof로 변경하였는지 확인합니다.
+  
+  
