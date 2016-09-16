@@ -13,6 +13,7 @@
 #include <termios.h>
 static struct termios inittio, newtio;
 
+
 #define DISABLE_IMG_IRQ      0x24402
 #define RD_IMG_DATA         0x24403
 #define DISPLAY_IMG_DATA   0x24404
@@ -229,6 +230,7 @@ int main(int argc, char **argv)
     int tmptmp, tmp;
     int tg, p_tg, m_tg ,p_m_tg;
     int attack_mode;
+    int turn_cnt=0;
    char ch;
    int ret;
    int cnt=0;
@@ -315,11 +317,13 @@ int main(int argc, char **argv)
 					tmptmp=x; 
 					t_col_s=y;
 				}
+/*
 			    if(img_buf[y][x]==63488 || img_buf[y][x]==31) 
 				{
 					++tg; 
 					p_tg=x;
 				}
+*/
 
 				if(img_buf[y][x]==2016 || img_buf[y][x]==2017)
 				{
@@ -327,11 +331,13 @@ int main(int argc, char **argv)
 					t_col_e=y; 
 				}
 			}
+/*
 			if(tg>m_tg)
 			{
 				m_tg=tg;
 				p_m_tg=p_tg; 
 			}
+*/
 			if(t_col_e-t_col_s>col_e-col_s) 
 			{
 				col_e=t_col_e;
@@ -344,8 +350,8 @@ int main(int argc, char **argv)
 			schk=0;
 			for(w=5;w<180;w++)
 			{
-				if(schk==0 && (img_buf[x][w]==2016))
-				{
+			    if(schk==0 && (img_buf[x][w]==2016))
+			    {
 				schk=1;
 				t_row_s=w;
 				tmp=x;
@@ -364,15 +370,15 @@ int main(int argc, char **argv)
 			}
 		}
 	printf("%d %d %d\n",col_l,col_s,col_e); 
-	if(row_e-row_s>120 && col_l>80 && col_l<100 && col_e-col_s>110)
+	if(row_e-row_s>110 && col_l>75 && col_l<105 && col_e-col_s>110)
 	{
 		printf("assa kick\n");
 		Kick();
 	}
-	else if(col_l>60 && col_l<120 && col_e-col_s>20)
+	else if(col_l>60 && col_l<120 && col_e-col_s>10)
 	{
 		printf("%d %d\n",col_e,col_s);
-		if(col_e-col_s>20 && col_e-col_s<90)
+		if(col_e-col_s>10 && col_e-col_s<90)
 		{
 			printf("GO\n");
 			F_walk();
@@ -396,15 +402,22 @@ int main(int argc, char **argv)
 	else if(col_l>0 && col_l<60 && col_e-col_s>30)
 	{
 		printf("%d left\n",row_s);
-		Turn_left(); 
-		F_walk();
+		Turn_left();
 	}
 	else if (col_l>120 && col_e-col_s>30) 
 	{
 		printf("%d right\n",row_s);
 		Turn_right();
-		F_walk;
 	}
+	else
+	{
+	    ++turn_cnt;
+	    if(turn_cnt>8) turn_cnt=0;
+	    else if(turn_cnt>4) Turn_right();
+	    else if(turn_cnt<=4) Turn_left();
+	    printf("Eye Lee shin\n");
+	}
+/*
 	else
 	{
 		if(p_tg>85 && p_tg<95)
@@ -415,64 +428,12 @@ int main(int argc, char **argv)
 		Turn_left();
 		Delay(0xffffff);
 	}
+*/
 }
 	   ch = getchar();
       ImgDisplayQuit();
       printf("\nTest is Stopped\n");
    }
-/*
-   else if(strcmp("-dp2", argv[1]) == 0) {
-      ClearScreen(255, 255, 255);
-      gFlip();
-      ClearScreen(255, 255, 255);
-      gFlip();
-      ClearScreen(255, 255, 255);
-      gFlip();
-      ClearScreen(255, 255, 255);
-      gFlip();
-      printf("Clear Screen!\n");
-      ret = ReadImageFromFPGA(&buf_addr);
-      if (ret < 0) return EXIT_FAILURE;
-      printf("Image Load from FPGA!\n");
-      draw_value.imgbuf_en = 0; 
-      ClearScreen(255, 255, 255);
-      draw_img_from_buffer((unsigned short *)buf_addr, 160, 130, 1.8, 0); 
-      printf("1. Draw Image to LCD!\n");
-
-      printf("\nPress Enter Key to load image again !!!");
-      ch = getchar();
-      
-      ret = ReadImageFromFPGA(&buf_addr);
-      if (ret < 0) return EXIT_FAILURE;
-      img_buf = (unsigned short (*)[256])buf_addr;
-      printf("Image Load from FPGA!\n");
-      for(y=0;y<=120;y++)
-      {
-         for(x=0;x<=180;x++)
-         {
-            if(img_buf[y][x]==2016) img_buf[y][x]=0;
-         }
-      }
-      //////////////////////////////////////////////////////////////////
-      // img_buf의 데이터에 대한 이미지 처리 과정이 이 위치에서 이루어짐 //
-      //////////////////////////////////////////////////////////////////
-      
-      draw_value.imgbuf_en = 1; // 읽어 온 데이터를 처리하고, 처리된 데이터를 LCD에 보여줄 때 설정 : comment by yyb[110909]
-      draw_img_from_buffer((unsigned short *)buf_addr, 160, 360, 1.8, 0);
-      gFlip();
-      printf("2. Draw Image to LCD!\n");
-      printf("\nPress Enter Key to STOP the test !!!");
-      ch = getchar();
-      printf("\nTest is Stopped\n");
-      
-   }
-   else {
-      printf("Usage 1 : imgproc_test -rd     <Read Image Data>\n");
-      printf("Usage 2 : imgproc_test -dp     <Display to LCD>\n");
-      printf("Usage 3 : imgproc_test -dp2    <Display 2 Frame>	\n");
-      exit(-1);
-   }
-*/   
    uart_close();
    close(devfb);
 
