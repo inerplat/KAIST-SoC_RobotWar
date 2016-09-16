@@ -375,15 +375,15 @@ int main(int argc, char **argv)
 		printf("assa kick\n");
 		Kick();
 	}
-	else if(col_l>60 && col_l<120 && col_e-col_s>10)
+	else if(col_l>60 && col_l<120 && col_e-col_s>15)
 	{
 		printf("%d %d\n",col_e,col_s);
-		if(col_e-col_s>10 && col_e-col_s<90)
+		if(col_e-col_s>15 && col_e-col_s<90)
 		{
 			printf("GO\n");
 			F_walk();
 		}
-		else if(col_e-col_s>=100) 
+		else if(col_e-col_s>=90) 
 		{
 			printf("honbap attack!");
 			attack_mode%=7;
