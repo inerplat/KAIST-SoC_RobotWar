@@ -231,6 +231,7 @@ int main(int argc, char **argv)
     int tg, p_tg, m_tg ,p_m_tg;
     int attack_mode;
     int turn_cnt=0;
+    int black_cnt;
    char ch;
    int ret;
    int cnt=0;
@@ -277,6 +278,7 @@ int main(int argc, char **argv)
 		col_s=0;
 		row_s=0;
 		tchk=0;
+	        black_cnt=0;
 		 for(x=5;x<180;x++)
 		 {
 			schk=0;
@@ -287,6 +289,7 @@ int main(int argc, char **argv)
 
 				if(img_buf[y][x]==0)
 			    {
+				    ++black_cnt;
 				ccnt=0;
 				cchk=0;
 				for(z=1;z<=10;z++) 
@@ -372,6 +375,7 @@ int main(int argc, char **argv)
 		}
 	printf("%d %d %d\n",col_l,col_s,col_e); 
 	++atk_cnt;
+	// if(black_cnt>=17000)
 	/*
 	if(atk_cnt>=4)
 	{
