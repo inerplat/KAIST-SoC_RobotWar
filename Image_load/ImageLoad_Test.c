@@ -229,12 +229,12 @@ int main(int argc, char **argv)
     int ccnt, cchk;
     int tmptmp, tmp;
     int tg, p_tg, m_tg ,p_m_tg;
+    int green_cnt;
     int attack_mode;
     int turn_cnt=0;
    char ch;
    int ret;
    int cnt=0;
-   int atk_cnt=0;
     unsigned char buff[5] = {0,};
    unsigned int buf_addr;
    unsigned short (*img_buf)[256];
@@ -286,32 +286,33 @@ int main(int argc, char **argv)
 //---------------------------------------------------------------------
 
 				if(img_buf[y][x]==0)
-			    {
-				ccnt=0;
-				cchk=0;
-				for(z=1;z<=10;z++) 
-				{
-				    if(img_buf[y+z][x]==2016) ++ccnt;
-				    if(img_buf[y-z][x]==2016) ++cnt;
-				    if(img_buf[y+z][x]==0) ++cchk;
-				    if(img_buf[y-z][x]==0) ++cchk;
-				}
-				if(ccnt>6) img_buf[y][x]=2017;
-				else if(cchk>6) img_buf[y][x]=65504; // 찾은 검은색이 6을 초과하면 검은색(0)을 노란색(65504)로 변환한다
-				ccnt=0;
-				cchk=0;
-				for(z=1;z<=3;z++) // 위와 같은 방식으로 가로로 +3,-3씩 이동하며 초록색과 검은색을 찾고, 변환한다
-				{
-				    if(img_buf[y][x+z]==0) ++cchk;
-				    if(img_buf[y][x-z]==0) ++cchk;
-				    if(img_buf[y][x+z]==2016) ++ccnt;
-				    if(img_buf[y][x-z]==2016) ++ccnt;
-				}
-				if(ccnt>1) img_buf[y][x]=2017;
-				else if(cchk>1) img_buf[y][x]=65504;
-			 }			
+			   	{
+				    green_cnt=0;
+				    ccnt=0;
+				    cchk=0;
+				    for(z=1;z<=10;z++) 
+				    {
+				        if(img_buf[y+z][x]==2016) ++ccnt;
+				        if(img_buf[y-z][x]==2016) ++cnt;
+				        if(img_buf[y+z][x]==0) ++cchk;
+				        if(img_buf[y-z][x]==0) ++cchk;
+				    }
+				    if(ccnt>6) img_buf[y][x]=2017;
+			    	    else if(cchk>6) img_buf[y][x]=65504; // 찾은 검은색이 6을 초과하면 검은색(0)을 노란색(65504)로 변환한다
+				    ccnt=0;
+				    cchk=0;
+				    for(z=1;z<=3;z++) // 위와 같은 방식으로 가로로 +3,-3씩 이동하며 초록색과 검은색을 찾고, 변환한다
+				    {
+				        if(img_buf[y][x+z]==0) ++cchk;
+				        if(img_buf[y][x-z]==0) ++cchk;
+				        if(img_buf[y][x+z]==2016) ++ccnt;
+				        if(img_buf[y][x-z]==2016) ++ccnt;
+				    }
+				    if(ccnt>1) img_buf[y][x]=2017;
+				    else if(cchk>1) img_buf[y][x]=65504;
+			         }			
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------
 			    if(schk==0 && (img_buf[y][x]==2016 || img_buf[y][x]==2017 || (img_buf[y][x]==0 && (img_buf[y+5][x]==2016) || (img_buf[y+6][x]==2016))))
 				{
 					schk=1; 
@@ -328,6 +329,7 @@ int main(int argc, char **argv)
 
 				if(img_buf[y][x]==2016 || img_buf[y][x]==2017)
 				{
+					green_cnt=0;
 					t_row_e=x;
 					t_col_e=y; 
 				}
@@ -341,6 +343,7 @@ int main(int argc, char **argv)
 */
 			if(t_col_e-t_col_s>col_e-col_s) 
 			{
+				if(green_cnt>10) schk=0;
 				col_e=t_col_e;
 				col_s=t_col_s;
 				col_l=tmptmp;
@@ -371,21 +374,10 @@ int main(int argc, char **argv)
 			}
 		}
 	printf("%d %d %d\n",col_l,col_s,col_e); 
-	++atk_cnt;
-	/*
-	if(atk_cnt>=4)
-	{
-		//주위 공격 모션
-		Delay(5000000);
-	}
-
-	}
-	*/
 	if(row_e-row_s>110 && col_l>75 && col_l<105 && col_e-col_s>110)
 	{
 		printf("assa kick\n");
-		Kick();
-		atk_cnt=0;
+//		Kick();
 	}
 	else if(col_l>60 && col_l<120 && col_e-col_s>15)
 	{
@@ -395,7 +387,7 @@ int main(int argc, char **argv)
 			printf("GO\n");
 			F_walk();
 		}
-		else if(col_e-col_s>=90) 
+		else if(col_e-col_s>=80) 
 		{
 			printf("honbap attack!");
 			attack_mode%=7;
@@ -408,7 +400,6 @@ int main(int argc, char **argv)
 			else if(attack_mode==5) combo5();
 			else if(attack_mode==6) combo6();
 			else if(attack_mode==7) combo7();
-			atk_cnt=0;
 			Delay(5000000);
 		}		
 	}
