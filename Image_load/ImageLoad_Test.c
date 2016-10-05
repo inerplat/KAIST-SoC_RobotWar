@@ -379,10 +379,10 @@ int main(int argc, char **argv)
 		printf("assa kick\n");
 		Kick();
 	}
-	else if(col_l>65 && col_l<120 && col_e-col_s>15)
+	else if(col_l>60 && col_l<120 && col_e-col_s>15)
 	{
 		printf("%d %d\n",col_e,col_s);
-		if(col_e-col_s<80)
+		if(col_e-col_s>15 && col_e-col_s<90)
 		{
 			printf("GO\n");
 			F_walk();
@@ -416,6 +416,8 @@ int main(int argc, char **argv)
 	else
 	{
 	    qturn1();
+	    Delay(10000000);
+	    F_walk();
 	    
 
 /*
