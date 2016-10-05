@@ -45,6 +45,8 @@ void combo4();
 void combo5();
 void combo6();
 void combo7();
+void qturn1();
+void qturn2();
 ////////////////////////////////////////////////////////////////////////////////
 
 #endif // __ROBOT_PROTOCOL_H__

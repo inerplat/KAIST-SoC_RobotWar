@@ -165,3 +165,12 @@ void combo7()
 }
 
 
+void qturn1()
+{
+	Motion(20);
+}
+
+void qturn2()
+{
+	Motion(21);
+}

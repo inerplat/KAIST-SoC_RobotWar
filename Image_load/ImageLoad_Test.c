@@ -298,10 +298,10 @@ int main(int argc, char **argv)
 				        if(img_buf[y-z][x]==0) ++cchk;
 				    }
 				    if(ccnt>6) img_buf[y][x]=2017;
-			    	    else if(cchk>6) img_buf[y][x]=65504; // ì°¾ì€ ê²€ì€ìƒ‰ì´ 6ì„ ì´ˆê³¼í•˜ë©´ ê²€ì€ìƒ‰(0)ì„ ë…¸ë€ìƒ‰(65504)ë¡œ ë³€í™˜í•œë‹¤
+			    	    else if(cchk>6) img_buf[y][x]=65504; // Ã£Àº °ËÀº»öÀÌ 6À» ÃÊ°úÇÏ¸é °ËÀº»ö(0)À» ³ë¶õ»ö(65504)·Î º¯È¯ÇÑ´Ù
 				    ccnt=0;
 				    cchk=0;
-				    for(z=1;z<=3;z++) // ìœ„ì™€ ê°™ì€ ë°©ì‹ìœ¼ë¡œ ê°€ë¡œë¡œ +3,-3ì”© ì´ë™í•˜ë©° ì´ˆë¡ìƒ‰ê³¼ ê²€ì€ìƒ‰ì„ ì°¾ê³ , ë³€í™˜í•œë‹¤
+				    for(z=1;z<=3;z++) // À§¿Í °°Àº ¹æ½ÄÀ¸·Î °¡·Î·Î +3,-3¾¿ ÀÌµ¿ÇÏ¸ç ÃÊ·Ï»ö°ú °ËÀº»öÀ» Ã£°í, º¯È¯ÇÑ´Ù
 				    {
 				        if(img_buf[y][x+z]==0) ++cchk;
 				        if(img_buf[y][x-z]==0) ++cchk;
@@ -374,10 +374,10 @@ int main(int argc, char **argv)
 			}
 		}
 	printf("%d %d %d\n",col_l,col_s,col_e); 
-	if(row_e-row_s>110 && col_l>75 && col_l<105 && col_e-col_s>110)
+	if(row_e-row_s>100 && col_l>75 && col_l<105 && col_e-col_s>100)
 	{
 		printf("assa kick\n");
-//		Kick();
+		Kick();
 	}
 	else if(col_l>60 && col_l<120 && col_e-col_s>15)
 	{
@@ -403,23 +403,31 @@ int main(int argc, char **argv)
 			Delay(5000000);
 		}		
 	}
-	else if(col_l>0 && col_l<60 && col_e-col_s>30)
+	else if(col_l>0 && col_l<65 && col_e-col_s>30)
 	{
 		printf("%d left\n",row_s);
 		Turn_left();
 	}
-	else if (col_l>120 && col_e-col_s>30) 
+	else if (col_l>115 && col_e-col_s>30) 
 	{
 		printf("%d right\n",row_s);
 		Turn_right();
 	}
 	else
 	{
+	    qturn1();
+	    Delay(10000000);
+	    F_walk();
+	    
+
+/*
 	    ++turn_cnt;
 	    if(turn_cnt>8) turn_cnt=0;
 	    else if(turn_cnt>4) Turn_right();
 	    else if(turn_cnt<=4) Turn_left();
+*/
 	    printf("Eye Lee shin\n");
+
 	}
 /*
 	else
