@@ -229,7 +229,7 @@ int main(int argc, char **argv)
     int ccnt, cchk;
     int tmptmp, tmp;
     int tg, p_tg, m_tg ,p_m_tg;
-    int green_cnt;
+    int green_cnt,black_cnt;
     int attack_mode;
     int turn_cnt=0;
    char ch;
@@ -277,6 +277,7 @@ int main(int argc, char **argv)
 		col_s=0;
 		row_s=0;
 		tchk=0;
+		black_cnt=0;
 		 for(x=5;x<180;x++)
 		 {
 			schk=0;
@@ -287,6 +288,7 @@ int main(int argc, char **argv)
 
 				if(img_buf[y][x]==0)
 			   	{
+				    ++black_cnt;
 				    green_cnt=0;
 				    ccnt=0;
 				    cchk=0;
@@ -298,7 +300,7 @@ int main(int argc, char **argv)
 				        if(img_buf[y-z][x]==0) ++cchk;
 				    }
 				    if(ccnt>6) img_buf[y][x]=2017;
-			    	    else if(cchk>6) img_buf[y][x]=65504; // 찾은 검은색이 6을 초과하면 검은색(0)을 노란색(65504)로 변환한다
+			    	    // else if(cchk>6) img_buf[y][x]=65504; // 찾은 검은색이 6을 초과하면 검은색(0)을 노란색(65504)로 변환한다
 				    ccnt=0;
 				    cchk=0;
 				    for(z=1;z<=3;z++) // 위와 같은 방식으로 가로로 +3,-3씩 이동하며 초록색과 검은색을 찾고, 변환한다
@@ -309,7 +311,7 @@ int main(int argc, char **argv)
 				        if(img_buf[y][x-z]==2016) ++ccnt;
 				    }
 				    if(ccnt>1) img_buf[y][x]=2017;
-				    else if(cchk>1) img_buf[y][x]=65504;
+				    // else if(cchk>1) img_buf[y][x]=65504;
 			         }			
 
 //----------------------------------------------------------------------
@@ -373,16 +375,35 @@ int main(int argc, char **argv)
 			    row_l=tmp;
 			}
 		}
-	printf("%d %d %d\n",col_l,col_s,col_e); 
-	if(row_e-row_s>100 && col_l>75 && col_l<105 && col_e-col_s>100)
+	printf("%d %d %d\n",col_l,col_s,col_e);
+	if(black_cnt>16200)
+	{
+printf("black\n");
+  Delay(15000000);
+  Delay(15000000);
+  qturn1();
+  Delay(5000000);
+  F_walk();
+  Delay(5000000);
+  F_walk();
+  Delay(5000000);
+  F_walk();
+  Delay(5000000);
+  F_walk();
+  Delay(5000000);
+  F_walk();
+  Delay(5000000);
+  F_walk();
+	} 
+	else if(row_e-row_s>110 && col_l>75 && col_l<105 && col_e-col_s>110)
 	{
 		printf("assa kick\n");
 		Kick();
 	}
-	else if(col_l>60 && col_l<120 && col_e-col_s>15)
+	else if(col_l>65 && col_l<120 && col_e-col_s>8)
 	{
 		printf("%d %d\n",col_e,col_s);
-		if(col_e-col_s>15 && col_e-col_s<90)
+		if(col_e-col_s<80)
 		{
 			printf("GO\n");
 			F_walk();
@@ -400,7 +421,7 @@ int main(int argc, char **argv)
 			else if(attack_mode==5) combo5();
 			else if(attack_mode==6) combo6();
 			else if(attack_mode==7) combo7();
-			Delay(5000000);
+			Delay(10000000);
 		}		
 	}
 	else if(col_l>0 && col_l<65 && col_e-col_s>30)
@@ -416,8 +437,6 @@ int main(int argc, char **argv)
 	else
 	{
 	    qturn1();
-	    Delay(10000000);
-	    F_walk();
 	    
 
 /*
