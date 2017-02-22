@@ -1,4 +1,4 @@
-# KAIST-SoC_RobotWar
+# [KAIST-SoC_RobotWar](https://github.com/inerplat/KAIST-SoC_RobotWar)
 
 작성자 : DH Kim
 
@@ -16,7 +16,7 @@ FPGA와 Image_Load폴더에 해당파트의 상세한 설명이 있습니다.
 
   4-1. 충전을 해도 토크가 부족하거나 잦은 오버로드에러가 뜬다면 고장입니다.
 ```
-## Eagle-MCU source
+## [Eagle-MCU source](https://github.com/inerplat/KAIST-SoC_RobotWar/tree/master/Image_load)
 두뇌보드 중 MCU에 올라가는 소스 입니다
 FPGA로부터 처리된 영상을 통해 색상을 기준으로 판단하고 공격을 합니다
 
@@ -41,7 +41,7 @@ gcc컴파일러를 cygwin을 이용하여 컴파일 했으며 RS232C-스트레�
 
  6-1. 오타로 메모리 주소를 잘못 입력 하셨다면 대전여행 다녀오시면 됩니다.
 ```
- # Verilog HDL FPGA source
+## [Verilog HDL FPGA source](https://github.com/inerplat/KAIST-SoC_RobotWar/tree/master/FPGA)
 
  SAA7111레지스터를 사용하는 Video decoder로부터 YCbCr로 구성된 영상데이터를 FPGA에 받습니다.
 
