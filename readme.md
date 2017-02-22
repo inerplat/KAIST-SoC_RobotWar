@@ -2,6 +2,8 @@
 
 작성자 : DH Kim
 
+---
+
 ## 작업시 주의사항
 ```
 1. RS232C-스트레오 3극 통신할때 보드단자가 취약합니다. 모션을 실행할때는 반드시 분리하세요.
@@ -14,6 +16,8 @@
 
   4-1. 충전을 해도 토크가 부족하거나 잦은 오버로드에러가 뜬다면 고장입니다.
 ```
+---
+
 ## [Eagle-MCU source](https://github.com/inerplat/KAIST-SoC_RobotWar/tree/master/Image_load)
 두뇌보드 중 MCU에 올라가는 소스 입니다
 FPGA로부터 처리된 영상을 통해 색상을 기준으로 판단하고 공격을 합니다
@@ -40,6 +44,8 @@ gcc컴파일러를 cygwin을 이용하여 컴파일 했으며 RS232C-스트레�
 
  6-1. 오타로 메모리 주소를 잘못 입력 하셨다면 대전여행 다녀오시면 됩니다.
 ```
+---
+
 ## [Verilog HDL FPGA source](https://github.com/inerplat/KAIST-SoC_RobotWar/tree/master/FPGA)
 
  SAA7111레지스터를 사용하는 Video decoder로부터 YCbCr로 구성된 영상데이터를 FPGA에 받습니다.
